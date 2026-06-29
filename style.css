@@ -15,6 +15,17 @@
   --mono: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
+:root[data-theme="dark"] {
+  --bg: #1a1613;
+  --panel: #241f1a;
+  --panel-2: #2e2820;
+  --border: #3a322a;
+  --ink: #ece3d4;
+  --muted: #a3957f;
+  --accent: #d96a45;
+  --accent-ink: #e8825f;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -27,7 +38,31 @@ body {
   padding: 0 22px 90px;
 }
 
+:root[data-theme="dark"] body {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
 .wrap { max-width: var(--max); margin: 0 auto; }
+
+/* ── Theme toggle ── */
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(60, 45, 25, 0.12);
+  transition: transform .12s ease, border-color .12s ease;
+}
+.theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); }
 
 /* ── Hero ── */
 header {
