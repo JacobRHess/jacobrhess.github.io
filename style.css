@@ -47,22 +47,27 @@ body {
 /* ── Theme toggle ── */
 .theme-toggle {
   position: fixed;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
   z-index: 10;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--ink);
-  font-size: 1.05rem;
-  line-height: 1;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fdf6ef;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(60, 45, 25, 0.12);
-  transition: transform .12s ease, border-color .12s ease;
+  box-shadow: 0 6px 16px rgba(60, 45, 25, 0.22);
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
 }
-.theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); }
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: var(--accent-ink);
+  box-shadow: 0 8px 20px rgba(60, 45, 25, 0.3);
+}
 
 /* ── Hero ── */
 header {

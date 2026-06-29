@@ -109,7 +109,9 @@
     const toggle = document.getElementById("theme-toggle");
     function syncToggle() {
       toggle.textContent =
-        document.documentElement.getAttribute("data-theme") === "dark" ? "☀" : "☾";
+        document.documentElement.getAttribute("data-theme") === "dark"
+          ? "☀ Light mode"
+          : "☾ Dark mode";
     }
     syncToggle();
     toggle.addEventListener("click", () => {
