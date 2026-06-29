@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jacob Hess</title>
+  <meta name="description" content="Jacob Hess — detection engineering, security tooling, and indie apps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" id="p-avatar" src="me.jpg" alt="" onerror="this.style.display='none'" />
+      <div class="intro">
+        <h1 id="p-name"></h1>
+        <div class="tagline" id="p-tagline"></div>
+        <p class="blurb" id="p-blurb"></p>
+        <div class="links" id="p-links"></div>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="apps">Apps</button>
+      <button class="tab" data-tab="portfolio">Cybersecurity Work</button>
+      <button class="tab" data-tab="credentials">Certs &amp; Skills</button>
+      <button class="tab" data-tab="misc">Misc</button>
+    </nav>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      <span id="f-year"></span> · Built with plain HTML/CSS. Edit
+      <code>data.js</code> to update.
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const linkedinIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.7a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM20 19h-3v-5.6c0-1.3-.5-2.2-1.7-2.2-.9 0-1.4.6-1.7 1.2-.1.2-.1.5-.1.8V19h-3V8h3v1.3c.4-.6 1.1-1.5 2.8-1.5 2 0 3.4 1.3 3.4 4.1V19z"/></svg>';
+    const githubIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2 0-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18.3 4.6 19.3 5 19.3 5c.6 1.6.1 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>';
+    const mailIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>';
+
+    // Profile
+    document.getElementById("p-name").textContent = PROFILE.name;
+    document.getElementById("p-tagline").textContent = PROFILE.tagline;
+    document.getElementById("p-blurb").textContent = PROFILE.blurb;
+    document.getElementById("f-year").textContent = new Date().getFullYear() + " " + PROFILE.name;
+
+    const linksEl = document.getElementById("p-links");
+    linksEl.innerHTML =
+      `<a class="btn primary" href="${PROFILE.linkedin}" target="_blank" rel="noopener">${linkedinIcon} Connect on LinkedIn</a>` +
+      `<a class="btn" href="${PROFILE.github}" target="_blank" rel="noopener">${githubIcon} GitHub</a>` +
+      `<a class="btn" href="mailto:${PROFILE.email}">${mailIcon} Email</a>`;
+
+    // Cards
+    const grid = document.getElementById("grid");
+
+    function renderCredentials() {
+      grid.className = "creds";
+      const certs = (typeof CERTS !== "undefined" ? CERTS : []).map(c => `
+        <article class="card">
+          <div class="top">
+            <h3>${c.name}</h3>
+            ${c.date ? `<span class="badge">${c.date}</span>` : ""}
+          </div>
+          ${c.issuer ? `<p>${c.issuer}</p>` : ""}
+          ${c.link ? `<a class="cardlink" href="${c.link}" target="_blank" rel="noopener">View credential</a>` : ""}
+        </article>`).join("");
+      const skills = (typeof SKILLS !== "undefined" ? SKILLS : [])
+        .map(s => `<span class="skill">${s}</span>`).join("");
+      grid.innerHTML = `
+        <section class="creds-sec">
+          <h2 class="sec-title">Licenses &amp; Certifications</h2>
+          <div class="cert-grid">${certs || '<p class="empty">Coming soon.</p>'}</div>
+        </section>
+        <section class="creds-sec">
+          <h2 class="sec-title">Skills</h2>
+          <div class="skills">${skills || '<p class="empty">Coming soon.</p>'}</div>
+        </section>`;
+    }
+
+    function render(tab) {
+      if (tab === "credentials") return renderCredentials();
+      grid.className = "grid";
+      grid.innerHTML = PROJECTS.filter(p => p.tab === tab).map(p => `
+        <article class="card">
+          <div class="top">
+            <h3>${p.name}</h3>
+            <span class="badge">${p.tag}</span>
+          </div>
+          <p>${p.desc}</p>
+          ${p.link ? `<a class="cardlink" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || "View"}</a>` : ""}
+        </article>`).join("");
+    }
+    render("apps");
+
+    document.getElementById("tabs").addEventListener("click", e => {
+      const btn = e.target.closest(".tab");
+      if (!btn) return;
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      render(btn.dataset.tab);
+    });
+  </script>
+</body>
+</html>
