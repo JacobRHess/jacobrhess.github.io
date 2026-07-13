@@ -128,6 +128,14 @@ const PROJECTS = [
   },
   {
     tab: "portfolio",
+    name: "pyramidcheck",
+    tag: "Detection durability · open source",
+    desc: "Pyramid-of-Pain durability scorer for Sigma rules: proves brittle IOC-based rules die under infrastructure rotation while behavioral rules survive. Scored the full SigmaHQ corpus (~3.1k rules) and cross-validated the evaluator against real Splunk in CI.",
+    link: "https://github.com/JacobRHess/pyramidcheck",
+    linkLabel: "GitHub",
+  },
+  {
+    tab: "portfolio",
     name: "webdetect",
     tag: "Web/app detection · open source",
     desc: "Application-layer detections proven against a real ModSecurity + OWASP CRS stack in CI. Malicious and benign fixtures per case, with an ATT&CK Navigator layer. 11 detections across 5 ATT&CK techniques.",
