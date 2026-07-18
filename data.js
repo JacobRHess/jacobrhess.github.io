@@ -62,9 +62,9 @@ const PROJECTS = [
   },
   {
     tab: "apps",
-    name: "PixelFront",
-    tag: "iOS game · in progress",
-    desc: "An 8-bit real-time hex strategy game (think HoI4-lite) for iOS. Built with Phaser, TypeScript, Vite and Capacitor. Economy-to-armies model with a clean DOM HUD.",
+    name: "Ringhold",
+    tag: "Strategy game · in testing",
+    desc: "A ring-fortress RTS roguelite: hold a keep at the center of the ring against waves pushing in from every side. 49 forts across 6 campaigns, 4 factions and an endless mode. The successor to my earlier hex-strategy prototype, PixelFront.",
     link: "",
     linkLabel: "",
   },
