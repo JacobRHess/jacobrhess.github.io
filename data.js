@@ -64,7 +64,7 @@ const PROJECTS = [
     tab: "apps",
     name: "Ringhold",
     tag: "Strategy game · in testing",
-    desc: "A ring-fortress RTS roguelite: hold a keep at the center of the ring against waves pushing in from every side. 49 forts across 6 campaigns, 4 factions and an endless mode. The successor to my earlier hex-strategy prototype, PixelFront.",
+    desc: "A ring-fortress RTS roguelite: hold a keep at the center of the ring against waves pushing in from every side. 49 forts across 6 campaigns, 4 factions and an endless mode.",
     link: "",
     linkLabel: "",
   },
