@@ -88,6 +88,14 @@ const PROJECTS = [
   },
   {
     tab: "portfolio",
+    name: "agentdetect",
+    tag: "LLM agent detection · open source",
+    desc: "Detections for intrusions driven by autonomous LLM agents — keyed to the agent's operating rhythm (tool-use loops, inference-latency cadence, retry storms) rather than any payload. 10 detections, each proven in CI by replaying attack and benign traces through a real Splunk, with attack telemetry captured from a real agent in a honeypot sandbox.",
+    link: "https://github.com/JacobRHess/agentdetect",
+    linkLabel: "GitHub",
+  },
+  {
+    tab: "portfolio",
     name: "responseloop",
     tag: "DFIR · open source",
     desc: "Investigate-and-respond companion to purpleloop. 14 cases, 12 analyzers, 13 ATT&CK techniques across host/network/IDS, with Sigma + STIX export, campaign correlation, Plaso super-timelines and Volatility3 memory forensics.",
