@@ -104,6 +104,14 @@ const PROJECTS = [
   },
   {
     tab: "portfolio",
+    name: "aws-org-baseline",
+    tag: "AWS security · open source",
+    desc: "A five-account AWS organization built like a company's first week of security work: Terraform throughout, SCP guardrails proven by attacking them, org-wide CloudTrail into a dedicated log archive, delegated GuardDuty + Security Hub, Identity Center SSO, and six ATT&CK-tagged Athena detections verified against a live purple-team exercise. Ships with a runbook, decision records and cost notes.",
+    link: "https://github.com/JacobRHess/aws-org-baseline",
+    linkLabel: "GitHub",
+  },
+  {
+    tab: "portfolio",
     name: "clouddetect",
     tag: "Cloud detection · open source",
     desc: "Cloud and identity detection engineering. Sigma rules compiled to SPL + Lucene and replayed through both Splunk and OpenSearch in CI. 19 detections across AWS CloudTrail, Okta and Entra ID.",
