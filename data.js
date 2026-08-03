@@ -12,6 +12,7 @@ const PROFILE = {
     "I build security detection content and the occasional game or app. This is most of what I've shipped: open-source detection labs, a few live products, and some side projects.",
   linkedin: "https://www.linkedin.com/in/jrhess-active/",
   github: "https://github.com/JacobRHess",
+  resume: "Jacob_Hess_Resume.pdf",
   email: "hess.jacobr@gmail.com",
 };
 
