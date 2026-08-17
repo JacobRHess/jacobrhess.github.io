@@ -97,6 +97,22 @@ const PROJECTS = [
   },
   {
     tab: "portfolio",
+    name: "kerberos-detections",
+    tag: "Active Directory detection · open source",
+    desc: "Active Directory and Kerberos detection lab: Splunk rules for Kerberoasting, AS-REP roasting and DCSync, measured against real captured Security-log telemetry with no fabricated fixtures. A rule only counts as proven when it fires on a real attack capture and stays silent on a real benign one, replayed through a live Splunk in CI. The coverage board reports honestly which halves are proven.",
+    link: "https://github.com/JacobRHess/kerberos-detections",
+    linkLabel: "GitHub",
+  },
+  {
+    tab: "portfolio",
+    name: "windetect",
+    tag: "Windows detection · open source",
+    desc: "Windows endpoint detection lab built on a real intrusion: Atomic Red Team run in a Hyper-V VM, captured on Sysmon, Security and PowerShell telemetry, sliced into fixtures that keep production field names, and replayed through a live Splunk in CI on every push. Each detection must fire on the attack capture and stay silent on the benign one.",
+    link: "https://github.com/JacobRHess/windetect",
+    linkLabel: "GitHub",
+  },
+  {
+    tab: "portfolio",
     name: "responseloop",
     tag: "DFIR · open source",
     desc: "Investigate-and-respond companion to purpleloop. 14 cases, 12 analyzers, 13 ATT&CK techniques across host/network/IDS, with Sigma + STIX export, campaign correlation, Plaso super-timelines and Volatility3 memory forensics.",
